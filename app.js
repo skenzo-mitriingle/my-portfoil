@@ -105,14 +105,46 @@ function hexToRgb(hex) {
 }
 
 /* ============================================================
-   NAV (scroll blur)
+   NAV (scroll blur + mobile dropdown)
 ============================================================ */
 (function navScroll() {
   const nav = document.getElementById("nav");
+  const navToggle = document.getElementById("navToggle");
+  const navLinks = document.getElementById("navLinks");
+  if (!nav) return;
+
+  const closeMenu = () => {
+    nav.classList.remove("open");
+    if (navToggle) navToggle.setAttribute("aria-expanded", "false");
+  };
+
   const onScroll = () => {
     if (window.scrollY > 50) nav.classList.add("scrolled");
     else nav.classList.remove("scrolled");
   };
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", (e) => {
+      if (window.innerWidth > 760) return;
+      if (!nav.classList.contains("open")) return;
+      if (nav.contains(e.target)) return;
+      closeMenu();
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 760) closeMenu();
+    });
+  }
+
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 })();
