@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skenzo 3D Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700;900&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- 3D Background Canvas -->
+    <canvas id="bg"></canvas>
+
+    <!-- NAV -->
+    <nav id="nav" class="nav">
+      <a class="brand" href="#hero">SKENZO</a>
+      <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- HERO -->
+      <section id="hero" class="section hero">
+        <div class="container hero-grid">
+          <div class="hero-left">
+            <div class="greeting">
+              <span class="greeting-text">Hello 👋</span>
+            </div>
+
+            <h1 class="hero-title">I'm skenzo</h1>
+
+            <div class="hero-subtitle">
+              <span id="typewriter" class="typewriter"></span>
+              <span id="typeCursor" class="type-cursor">|</span>
+            </div>
+
+            <p class="hero-bio">
+              I craft immersive, high performance web experiences that blend
+              clean code with bold visual design from interactive 3D scenes to
+              pixel perfect UIs, turning ideas into digital reality.
+            </p>
+
+            <div class="badges" id="badges"></div>
+
+            <div class="cta">
+              <a class="btn primary" href="#projects">View My Work ↗</a>
+              <a class="btn ghost" href="#contact">Contact Me</a>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <div class="avatar-float">
+              <div class="halo"></div>
+              <div class="conic"></div>
+              <div class="avatar">
+                <img src="images/skenzo.jpeg" alt="Skenzo Profile" />
+              </div>
+              <div class="dev-badge">Yes that's me</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-indicator">
+          <span>SCROLL</span>
+          <div class="scroll-line"></div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section">
+        <div class="container container-narrow">
+          <div class="section-title">
+            <span class="section-label">01 /</span>
+            <h2 class="section-h2">About Me</h2>
+            <div class="section-line"></div>
+          </div>
+
+          <div class="about-grid">
+            <div>
+              <p class="lead">
+                I'm <span class="accent-strong">Skenzo</span>, a front-end
+                developer passionate about crafting beautiful, functional
+                digital experiences.
+              </p>
+              <p class="muted">
+                With deep expertise in modern JavaScript frameworks,Three.js,
+                and creative CSS, I bridge design and engineering. Every project
+                is an opportunity to push creative and technical boundaries.
+              </p>
+              <p class="muted">
+                When I'm not coding, I'm exploring design trends, contributing
+                to open-source, or experimenting with generative 3D art.
+              </p>
+            </div>
+
+            <div class="stats-grid" id="statsGrid"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="section">
+        <div class="container container-narrow">
+          <div class="section-title">
+            <span class="section-label">02 /</span>
+            <h2 class="section-h2">Skills</h2>
+            <div class="section-line"></div>
+          </div>
+
+          <div class="skills-grid" id="skillsGrid"></div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-title">
+            <span class="section-label">03 /</span>
+            <h2 class="section-h2">Projects</h2>
+            <div class="section-line"></div>
+          </div>
+
+          <p class="projects-intro">
+            A selection of things I've built. Click any card to view on GitHub.
+          </p>
+
+          <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section">
+        <div class="container container-form">
+          <div class="section-title">
+            <span class="section-label">04 /</span>
+            <h2 class="section-h2">Contact</h2>
+            <div class="section-line"></div>
+          </div>
+
+          <p class="muted contact-intro">
+            Have a project or want to collaborate? Let's build something
+            together.
+          </p>
+
+          <div id="contactRoot"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Three.js CDN -->
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
