@@ -516,6 +516,81 @@ body {
   margin-bottom: 2.5rem;
 }
 
+.contact-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.form .contact-links {
+  margin-top: 0.3rem;
+  margin-bottom: 0;
+}
+
+.contact-icon-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #ffffff;
+  border: 1px solid rgba(6, 182, 212, 0.32);
+  background: rgba(6, 182, 212, 0.1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.contact-icon-link svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+}
+
+.contact-icon-link:hover,
+.contact-icon-link:focus-visible {
+  color: #e0f7ff;
+  border-color: rgba(6, 182, 212, 0.65);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.35);
+  transform: translateY(-2px);
+}
+
+.contact-icon-link:focus-visible {
+  outline: 2px solid rgba(103, 232, 249, 0.75);
+  outline-offset: 2px;
+}
+
+.contact-icon-link::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-family: "JetBrains Mono", monospace;
+  color: #dbeafe;
+  background: rgba(2, 6, 23, 0.92);
+  border: 1px solid rgba(103, 232, 249, 0.35);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.contact-icon-link:hover::after,
+.contact-icon-link:focus-visible::after {
+  opacity: 1;
+}
+
 .form {
   display: flex;
   flex-direction: column;
