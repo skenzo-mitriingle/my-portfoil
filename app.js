@@ -51,6 +51,14 @@ const PROJECTS = [
     emoji: "💬",
     url: "https://skenzo-mitriingle.github.io/annonymous/",
   },
+
+
+  {
+    name: "Mubas Pickleball",
+    desc: "Live pickleball project website",
+    emoji: "🏓",
+    url: "https://skenzo-mitriingle.github.io/mubas-pickleball/",
+  },
   {
     name: "Job Search",
     desc: "Job listing & search platform",
@@ -87,12 +95,7 @@ const PROJECTS = [
     emoji: "🌐",
     url: "https://github.com/skenzo-mitriingle/my-website",
   },
-  {
-    name: "Mubas Pickleball",
-    desc: "Live pickleball project website",
-    emoji: "🏓",
-    url: "https://skenzo-mitriingle.github.io/mubas-pickleball/",
-  },
+  
   {
     name: "Website",
     desc: "Agency / business landing page",
