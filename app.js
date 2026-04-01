@@ -363,35 +363,20 @@ function renderContactLinks() {
 })();
 
 /* ============================================================
-   CONTACT (EmailJS)
-   NOTE: Your EmailJS template variables must be:
-   {{name}}, {{email}}, {{message}}
+   CONTACT (mailto fallback)
 ============================================================ */
-(function renderContactEmailJS() {
+(function renderContactForm() {
   const root = document.getElementById("contactRoot");
   if (!root) return;
 
-  const SERVICE_ID = "service_exemd9i";
-  const TEMPLATE_ID = "template_9q5a8ld";
-  const PUBLIC_KEY = "zEwUnt3m-V1aKQNdO";
-
-  if (typeof window.emailjs === "undefined") {
-    root.innerHTML = `
-      ${renderContactLinks()}
-      <p style="color:#fb7185;font-family:monospace;">EmailJS not loaded. Check script order in index.html.</p>
-    `;
-    console.error("[Contact] EmailJS not loaded.");
-    return;
-  }
-
-  emailjs.init(PUBLIC_KEY);
+  const CONTACT_EMAIL = "enockkaphukusi24@gmail.com";
 
   root.innerHTML = `
     <form class="form" id="contactForm">
       <input class="input" name="name" type="text" placeholder="Your Name" required />
       <input class="input" name="email" type="email" placeholder="Your Email" required />
       <textarea class="textarea" name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button class="send-btn" id="sendBtn" type="submit">Send Message ✈</button>
+      <button class="send-btn" id="sendBtn" type="submit">Email Me ✈</button>
       <p id="formStatus" style="color:#64748b;font-size:.85rem;margin-top:.25rem;"></p>
       ${renderContactLinks()}
     </form>
@@ -401,30 +386,36 @@ function renderContactLinks() {
   const btn = document.getElementById("sendBtn");
   const status = document.getElementById("formStatus");
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    const formData = new FormData(form);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+
+    const subject = `Portfolio message from ${name}`;
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      "",
+      message,
+    ].join("\n");
 
     btn.disabled = true;
     btn.style.opacity = "0.75";
-    status.textContent = "Sending...";
+    status.style.color = "#94a3b8";
+    status.textContent = "Opening your email app...";
 
-    try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form);
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-      root.innerHTML = `
-        ${renderContactLinks()}
-        <div class="sent">
-          <div class="emoji">🚀</div>
-          <h3>Message Sent!</h3>
-          <p>I'll get back to you soon.</p>
-        </div>
-      `;
-    } catch (err) {
-      console.error("[Contact] Failed:", err);
+    window.setTimeout(() => {
       btn.disabled = false;
       btn.style.opacity = "1";
-      status.textContent = "Failed to send. Check console for error.";
-    }
+      status.style.color = "#22d3ee";
+      status.textContent =
+        "If your email app opened, press send there to finish.";
+    }, 600);
   });
 })();
 
