@@ -851,7 +851,7 @@ function renderContactLinks() {
 
     // Scroll → camera pull-in (same as your original)
     const scrollY = window.scrollY || 0;
-    camera.position.z = Math.max(8, 22 - scrollY * 0.001);
+    camera.position.z = Math.max(8, 22 - scrollY * 0.01);
 
     renderer.render(scene, camera);
   };
