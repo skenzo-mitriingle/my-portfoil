@@ -51,8 +51,6 @@ const PROJECTS = [
     emoji: "💬",
     url: "https://skenzo-mitriingle.github.io/annonymous/",
   },
-
-
   {
     name: "Mubas Pickleball",
     desc: "Live pickleball project website",
