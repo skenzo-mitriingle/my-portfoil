@@ -295,13 +295,38 @@ function renderContactLinks() {
 (function renderStats() {
   const root = document.getElementById("statsGrid");
   if (!root) return;
+  const statLinks = {
+    Projects: {
+      href: "#projects",
+      ariaLabel: "Go to projects section",
+    },
+    Technologies: {
+      href: "#skills",
+      ariaLabel: "Go to skills section",
+    },
+  };
+
   root.innerHTML = STATS.map(
-    ([v, l]) => `
+    ([v, l]) => {
+      const statLink = statLinks[l];
+      return `
+    ${
+      statLink
+        ? `
+    <a class="stat stat-link" href="${statLink.href}" aria-label="${statLink.ariaLabel}">
+      <div class="v">${v}</div>
+      <div class="l">${l}</div>
+    </a>
+    `
+        : `
     <div class="stat">
       <div class="v">${v}</div>
       <div class="l">${l}</div>
     </div>
-  `,
+    `
+    }
+  `;
+    },
   ).join("");
 })();
 
