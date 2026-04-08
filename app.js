@@ -22,7 +22,7 @@
 /* ============================================================
    DATA
 ============================================================ */
-const TYPE_TEXTS = ["the fullstack web developer ✌🏻"];
+const TYPE_TEXTS = ["the full-stack web developer ✌🏻"];
 
 const BADGES = ["C++", "Three.js", "python", "Node.js", "CSS3", "JavaScript"];
 
