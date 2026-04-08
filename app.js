@@ -131,7 +131,7 @@ const CONTACT_LINKS = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/",
+    href: "https://www.linkedin.com/in/enock-kaphukusi-88532028a/",
     external: true,
     icon: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M6.9 8.7H3.8V20h3.1V8.7zM5.3 3.5C4.2 3.5 3.4 4.3 3.4 5.4s.8 1.9 1.9 1.9 1.9-.8 1.9-1.9-.8-1.9-1.9-1.9zM20.6 13.2c0-3.2-1.7-4.7-4-4.7-1.8 0-2.6 1-3.1 1.7V8.7h-3.1c0 1 .1 11.3 0 11.3h3.1v-6.3c0-.3 0-.7.1-.9.2-.7.8-1.5 1.8-1.5 1.2 0 1.7.9 1.7 2.3V20h3.1v-6.8z"></path>
